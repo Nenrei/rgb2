@@ -37,7 +37,7 @@ public class ObstaclesCollision : MonoBehaviour
         return false;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
@@ -53,8 +53,10 @@ public class ObstaclesCollision : MonoBehaviour
             {
                 Debug.Log("NOT DIE");
 
-                obstacle.SetActive(false);
                 particles.SetActive(true);
+                obstacle.SetActive(false);
+
+                StartCoroutine(Respawn());
 
                 /*
                 UpdateScore();
@@ -63,6 +65,14 @@ public class ObstaclesCollision : MonoBehaviour
                 */
             }
         }
+    }
+
+    IEnumerator Respawn()
+    {
+        yield return new WaitForSeconds(1f);
+        particles.SetActive(false);
+        obstacle.SetActive(true);
+        gameObject.SetActive(false);
     }
 
 }

@@ -5,14 +5,14 @@ using UnityEngine;
 public class ChangeColorOverTime : MonoBehaviour
 {
     [Header("Colors")]
-    [SerializeField] Material[] materials;
+    [SerializeField] Color[] colors;
     [SerializeField] string[] colorNames;
 
     [Header("Changing Objects")]
-    [SerializeField] GameObject wallLeft;
-    [SerializeField] GameObject wallRight;
     [Space(10)]
-    [SerializeField] GameObject player;
+    [SerializeField] SpriteRenderer playerShape;
+    [SerializeField] SpriteRenderer playerGlow;
+    [SerializeField] ParticleSystem playerParticles;
 
     [Header("Options")]
     [SerializeField] float changeSpeed = 5;
@@ -26,7 +26,7 @@ public class ChangeColorOverTime : MonoBehaviour
     public int CurrColor { get => currColor; set => currColor = value; }
     public bool ChangingColor { get => changingColor; set => changingColor = value; }
     public float ChangeTime { get => changeTime; set => changeTime = value; }
-    public Material[] Materials { get => materials; set => materials = value; }
+    public Color[] Colors { get => colors; set => colors = value; }
     public string[] ColorNames { get => colorNames; set => colorNames = value; }
 
     void Start()
@@ -39,13 +39,17 @@ public class ChangeColorOverTime : MonoBehaviour
     {
         if (ChangingColor)
         {
-            wallLeft.GetComponent<Renderer>().material.color = LerpColor(wallLeft);
-            wallRight.GetComponent<Renderer>().material.color = LerpColor(wallLeft);
-            player.GetComponent<Renderer>().material.color = LerpColor(wallLeft);
+
+            playerShape.color = LerpColor(playerShape);
+            playerGlow.color = LerpColor(playerGlow);
+
+            ParticleSystem.MainModule ma = playerParticles.main;
+            ma.startColor = LerpColor(ma);
+
 
             ChangeTime += Time.deltaTime;
 
-            if (player.GetComponent<Renderer>().material.color == Materials[currColor].color)
+            if (playerShape.color == Colors[currColor])
             {
                 ChangingColor = false;
                 Invoke("ChangeMaterial", 4f);
@@ -54,22 +58,19 @@ public class ChangeColorOverTime : MonoBehaviour
         }
     }
 
-    Color LerpColor(GameObject originObject)
+    Color LerpColor(SpriteRenderer originObject)
     {
-        return Color.Lerp(originObject.GetComponent<Renderer>().material.color, Materials[currColor].color, changeSpeed*Time.deltaTime);
+        return Color.Lerp(originObject.color, Colors[currColor], changeSpeed*Time.deltaTime);
+    }
+    Color LerpColor(ParticleSystem.MainModule originObject)
+    {
+        return Color.Lerp(originObject.startColor.color, Colors[currColor], changeSpeed * Time.deltaTime);
     }
 
     void ChangeMaterial()
     {
         if (!ChangingColor)
         {
-            if (prevColor != -1)
-            {
-                wallLeft.GetComponent<Animator>().SetTrigger("changeColor");
-                wallRight.GetComponent<Animator>().SetTrigger("changeColor");
-                player.GetComponent<Animator>().SetTrigger("changeColor");
-            }
-
             prevColor = currColor;
             currColor = ChooseNewColor();
             ChangingColor = true;
@@ -79,7 +80,7 @@ public class ChangeColorOverTime : MonoBehaviour
 
     int ChooseNewColor()
     {
-        int newColor = Random.Range(0, Materials.Length);
+        int newColor = Random.Range(0, Colors.Length);
         if (currColor == newColor)
         {
             newColor = ChooseNewColor();

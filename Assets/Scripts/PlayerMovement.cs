@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float speed = 2;
     public Transform targetRight, targetLeft;
+    public Transform particles;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector3 newPos = Vector3.Lerp(transform.position, target, speed * Time.deltaTime);
             transform.position = newPos;
+            particles.position = newPos;
+
             if (transform.position.x == target.x)
             {
                 movingPlayer = false;

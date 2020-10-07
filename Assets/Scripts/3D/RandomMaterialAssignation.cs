@@ -8,8 +8,8 @@ public class RandomMaterialAssignation : MonoBehaviour
 
     private void OnEnable()
     {
-        int index = Random.Range(0, changeColor.Materials.Length);
-        GetComponent<MeshRenderer>().material = changeColor.Materials[index];
+        int index = Random.Range(0, changeColor.Colors.Length);
+        //GetComponent<Spri>().material = changeColor.Colors[index];
         GetComponentInParent<ObstaclesCollision>().Color = changeColor.ColorNames[index];
     }
 }

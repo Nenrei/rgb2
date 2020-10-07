@@ -13,6 +13,9 @@ public class ObstacleColorController : MonoBehaviour
     [SerializeField] ParticleSystem particles;
     [SerializeField] ParticleSystem particlesGlow;
 
+    public Color Color { get => color; set => color = value; }
+    public Color ColorParticles { get => colorParticles; set => colorParticles = value; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,13 +34,13 @@ public class ObstacleColorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        shape.color = color;
-        shapeGlow.color = color;
+        shape.color = Color;
+        shapeGlow.color = Color;
 
         ParticleSystem.MainModule ma = particles.main;
         ParticleSystem.MainModule maGlow = particlesGlow.main;
 
-        ma.startColor = colorParticles;
-        maGlow.startColor = colorParticles;
+        ma.startColor = ColorParticles;
+        maGlow.startColor = ColorParticles;
     }
 }

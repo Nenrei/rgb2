@@ -1,16 +1,37 @@
 fileFormatVersion: 2
-guid: a5485ab6749d83743b36e01217156763
+guid: 60cb4b4a376ac7243b890fa98dde3fe2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7655364043835848482
-    second: shapesGlow_0
+      213: -4141040200294168301
+    second: Images_0
   - first:
-      213: 3881502287477883144
-    second: shapesGlow_1
+      213: -1789250064935161790
+    second: Images_0
   - first:
-      213: -4654535030332312241
-    second: shapesGlow_2
+      213: -3072681638955191767
+    second: Images_1
+  - first:
+      213: 7896438052682664545
+    second: Images_2
+  - first:
+      213: -5190016611775425530
+    second: Images_3
+  - first:
+      213: -5197131006718388603
+    second: Images_4
+  - first:
+      213: 61711750533225471
+    second: Images_5
+  - first:
+      213: -4883720018186798884
+    second: Images_6
+  - first:
+      213: 2243293435671986700
+    second: Images_7
+  - first:
+      213: 6292833697617833643
+    second: Images_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +62,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -55,7 +76,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 350
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +93,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -84,7 +105,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -96,7 +117,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -108,7 +129,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -120,7 +141,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -134,64 +155,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: shapesGlow_0
+      name: Images_0
       rect:
         serializedVersion: 2
-        x: 113
-        y: 1552
-        width: 236
-        height: 232
+        x: 20
+        y: 30
+        width: 1101
+        height: 1940
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed8cdd446fea2c590800000000000000
-      internalID: -7655364043835848482
+      spriteID: 240f139bb8e4b27e0800000000000000
+      internalID: -1789250064935161790
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shapesGlow_1
+      name: Images_1
       rect:
         serializedVersion: 2
-        x: 412
-        y: 1552
-        width: 236
-        height: 232
+        x: 1179
+        y: 30
+        width: 1101
+        height: 1940
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8014cffe3cdddd530800000000000000
-      internalID: 3881502287477883144
+      spriteID: 922f5324454ab55d0800000000000000
+      internalID: -3072681638955191767
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shapesGlow_2
+      name: Images_3
       rect:
         serializedVersion: 2
-        x: 708
-        y: 1553
-        width: 256
-        height: 228
+        x: 2682
+        y: 1821
+        width: 150
+        height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f453e6afc05c76fb0800000000000000
-      internalID: -4654535030332312241
+      spriteID: 604dfb4b36b59f7b0800000000000000
+      internalID: -5190016611775425530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Images_2
+      rect:
+        serializedVersion: 2
+        x: 2475
+        y: 1821
+        width: 150
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16a07016298c59d60800000000000000
+      internalID: 7896438052682664545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Images_4
+      rect:
+        serializedVersion: 2
+        x: 2902
+        y: 1821
+        width: 150
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 586d16d82e410e7b0800000000000000
+      internalID: -5197131006718388603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Images_5
+      rect:
+        serializedVersion: 2
+        x: 3122
+        y: 1821
+        width: 150
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffb1009928e3bd000800000000000000
+      internalID: 61711750533225471
       vertices: []
       indices: 
       edges: []
@@ -208,7 +292,7 @@ TextureImporter:
     secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
+  pSDShowRemoveMatteOption: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 
