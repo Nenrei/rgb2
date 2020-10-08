@@ -24,6 +24,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (movingPlayer)
         {
+            if (!GameController.Instance.GameStarted)
+                GameController.Instance.StartGame();
+
             Vector3 newPos = Vector3.Lerp(transform.position, target, speed * Time.deltaTime);
             transform.position = newPos;
             particles.position = newPos;

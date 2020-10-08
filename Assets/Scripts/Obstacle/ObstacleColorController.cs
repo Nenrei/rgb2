@@ -7,28 +7,31 @@ public class ObstacleColorController : MonoBehaviour
 
     [SerializeField] Color color;
     [SerializeField] Color colorParticles;
+    [SerializeField] Color colorLight;
 
     [SerializeField] SpriteRenderer shape;
     [SerializeField] SpriteRenderer shapeGlow;
-    [SerializeField] ParticleSystem particles;
     [SerializeField] ParticleSystem particlesGlow;
+    [SerializeField] ParticleSystem particles;
+
+    [SerializeField] SpriteRenderer shapeLight;
 
     public Color Color { get => color; set => color = value; }
     public Color ColorParticles { get => colorParticles; set => colorParticles = value; }
+    public Color ColorLight { get => colorLight; set => colorLight = value; }
 
     // Start is called before the first frame update
     void Start()
     {
-        particles.Stop(true);
         particlesGlow.Stop(true);
+        particles.Stop(true);
 
         int seed = Random.Range(0, int.MaxValue);
-        particles.randomSeed = (uint)seed;
         particlesGlow.randomSeed = (uint)seed;
-
-
-        particles.Play();
+        particles.randomSeed = (uint)seed;
+        
         particlesGlow.Play();
+        particles.Play();
     }
 
     // Update is called once per frame
@@ -37,10 +40,12 @@ public class ObstacleColorController : MonoBehaviour
         shape.color = Color;
         shapeGlow.color = Color;
 
-        ParticleSystem.MainModule ma = particles.main;
-        ParticleSystem.MainModule maGlow = particlesGlow.main;
+        shapeLight.color = ColorLight;
 
-        ma.startColor = ColorParticles;
+        ParticleSystem.MainModule maGlow = particlesGlow.main;
+        ParticleSystem.MainModule ma = particles.main;
+
         maGlow.startColor = ColorParticles;
+        ma.startColor = ColorParticles;
     }
 }

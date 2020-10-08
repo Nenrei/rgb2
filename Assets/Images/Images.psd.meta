@@ -280,6 +280,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Images_6
+      rect:
+        serializedVersion: 2
+        x: 2715
+        y: 189
+        width: 864
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd8f28db48a893cb0800000000000000
+      internalID: -4883720018186798884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

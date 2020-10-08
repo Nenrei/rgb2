@@ -13,8 +13,13 @@ public class RandomColorAssignation : MonoBehaviour
         GetComponentInParent<ObstaclesCollision>().Color = changeColor.ColorNames[index];
 
         colorController.Color = changeColor.Colors[index];
+
         Color particleColor = changeColor.Colors[index];
         particleColor.a = 0.6f;
         colorController.ColorParticles = particleColor;
+
+        Color lightColor = changeColor.Colors[index];
+        lightColor.a = 0.3f;
+        colorController.ColorLight = lightColor;
     }
 }
