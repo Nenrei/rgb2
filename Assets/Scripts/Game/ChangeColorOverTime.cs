@@ -28,11 +28,14 @@ public class ChangeColorOverTime : MonoBehaviour
     bool changingColor;
     float changeTime;
 
+    int goldIndex = 3;
+
     public int CurrColor { get => currColor; set => currColor = value; }
     public bool ChangingColor { get => changingColor; set => changingColor = value; }
     public float ChangeTime { get => changeTime; set => changeTime = value; }
     public Color[] Colors { get => colors; set => colors = value; }
     public string[] ColorNames { get => colorNames; set => colorNames = value; }
+    public int GoldIndex { get => goldIndex; set => goldIndex = value; }
 
     void Start()
     {
@@ -104,7 +107,8 @@ public class ChangeColorOverTime : MonoBehaviour
     int ChooseNewColor()
     {
         int newColor = Random.Range(0, Colors.Length);
-        if (currColor == newColor)
+
+        if (currColor == newColor || goldIndex == newColor)
         {
             newColor = ChooseNewColor();
         }
@@ -114,6 +118,17 @@ public class ChangeColorOverTime : MonoBehaviour
     public string GetCurrentColor()
     {
         return ColorNames[currColor];
+    }
+
+    public int GetRandomColor()
+    {
+        int newColor = Random.Range(0, Colors.Length);
+
+        if (goldIndex == newColor)
+        {
+            newColor = GetRandomColor();
+        }
+        return newColor;
     }
 
 }
