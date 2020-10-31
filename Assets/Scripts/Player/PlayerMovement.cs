@@ -9,14 +9,20 @@ public class PlayerMovement : MonoBehaviour
     private bool movingPlayer;
     private Camera cam;
 
-    public float speed = 2;
-    public Transform targetRight, targetLeft;
-    public Transform particles;
+    [SerializeField] float speed = 2;
+    [SerializeField] Transform targetRight, targetLeft;
+    [SerializeField] Transform particles;
+
+    [SerializeField] Transform imageToRotate;
+
+    Animator anim;
+
 
     // Start is called before the first frame update
     void Start()
     {
         cam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -31,9 +37,10 @@ public class PlayerMovement : MonoBehaviour
             transform.position = newPos;
             particles.position = newPos;
 
-            if (transform.position.x == target.x)
+            if (Vector3.Distance(transform.position, target) < 0.2)
             {
                 movingPlayer = false;
+                //anim.SetBool("moving", false);
             }
 
         }
@@ -47,8 +54,13 @@ public class PlayerMovement : MonoBehaviour
         {
             target = new Vector3(mouseX, transform.position.y, transform.position.z);
         }
-        movingPlayer = true;
+
+        if (Vector3.Distance(transform.position, target) > 0.2)
+        {
+            //anim.SetBool("moving", true);
+            movingPlayer = true;
+        }
         
     }
-   
+
 }

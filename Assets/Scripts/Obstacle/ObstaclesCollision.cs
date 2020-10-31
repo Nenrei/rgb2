@@ -47,30 +47,28 @@ public class ObstaclesCollision : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-
             //GameObject.Find("Main Camera").GetComponent<CameraShake>().Shake(0.1f, 0.1f);
 
-            if (DieOnCollision(Color))
-            {
+            StartCoroutine(ResetObstacle());
+
+            if (Color == changeColor.ColorNames[changeColor.GoldIndex])
+                player.CollectGoldenObstacle();
+            else if (DieOnCollision(Color))
                 player.Die();
-            }
             else
-            {
-                GetComponent<CircleCollider2D>().enabled = false;
-                particles.SetActive(true);
-                obstacle.SetActive(false);
-                GetComponent<ObstacleMovement>().CanMove = false;
-
-                StartCoroutine(ResetObstacle());
-
                 player.Score();
-            }
         }
     }
 
     IEnumerator ResetObstacle()
     {
+        GetComponent<CircleCollider2D>().enabled = false;
+        particles.SetActive(true);
+        obstacle.SetActive(false);
+        GetComponent<ObstacleMovement>().CanMove = false;
+
         yield return new WaitForSeconds(0.5f);
+
         transform.localPosition = Vector3.zero;
         particles.SetActive(false);
         obstacle.SetActive(true);

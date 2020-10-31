@@ -206,7 +206,7 @@ TextureImporter:
         height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 48, y: 53, z: 52, w: 54}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -227,7 +227,7 @@ TextureImporter:
         height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 30, y: 31, z: 32, w: 31}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -284,12 +284,12 @@ TextureImporter:
       name: Images_6
       rect:
         serializedVersion: 2
-        x: 2715
+        x: 2730
         y: 189
         width: 864
         height: 781
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
