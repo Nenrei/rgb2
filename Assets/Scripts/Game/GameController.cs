@@ -45,4 +45,9 @@ public class GameController : MonoBehaviour
         Time.timeScale = 1;
         pausaButton.SetActive(false);
     }
+
+    public void ShowLeaderboard()
+    {
+        PlayServices.instance.ShowLeaderboard("The Classic");
+    }
 }

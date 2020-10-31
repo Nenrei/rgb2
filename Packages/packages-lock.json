@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.google.external-dependency-manager": {
+      "version": "1.2.161",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://unityregistry-pa.googleapis.com"
+    },
     "com.unity.2d.animation": {
       "version": "4.2.6",
       "depth": 0,
@@ -158,6 +165,31 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
       }
+    },
+    "es.jacksparrot.json": {
+      "version": "https://github.com/JackSParrot/json-pkg.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "99d9ad4c0f226bbb0293a64b93322491caa4b6ce"
+    },
+    "es.jacksparrot.localization": {
+      "version": "https://github.com/JackSParrot/localization-pkg.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "es.jacksparrot.json": "1.0.0",
+        "es.jacksparrot.utils": "1.0.0",
+        "com.unity.textmeshpro": "2.0.0"
+      },
+      "hash": "56b5288bb34a9b19a6214463030d5c7e2fcdf4d0"
+    },
+    "es.jacksparrot.utils": {
+      "version": "https://github.com/JackSParrot/utils-pkg.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "26370863ac5e6cb1bf643b6800d96fc5fb4de8b9"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
