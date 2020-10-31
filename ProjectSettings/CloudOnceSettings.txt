@@ -1,0 +1,18 @@
+{
+	"AchievementIDs":[],
+	"LeaderboardIDs":[
+		{
+			"InternalID":"TheClassic",
+			"AppleID":"",
+			"GoogleID":"773917688743"
+		}
+	],
+	"CloudVariables":[],
+	"AppleSupported":false,
+	"GoogleSupported":true,
+	"GoogleAppID":"773917688743",
+	"GoogleSetupRun":true,
+	"DebugModeEnabled":true,
+	"Version":"2.7.1",
+	"SettingsLocation":"0"
+}

@@ -38,6 +38,8 @@ public class ScoreController : MonoBehaviour
 
         if (PlayerPrefs.GetInt("topScore") < PlayerPrefs.GetInt("lastScore"))
             PlayerPrefs.SetInt("topScore", PlayerPrefs.GetInt("lastScore"));
+
+        CloudOnceServices.instance.SubmitScoreToLeaderboard("TheClassic", PlayerPrefs.GetInt("topScore"));
     }
 
     public void HideScore()
