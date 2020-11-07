@@ -24,6 +24,9 @@
 
 public static class GPGSIds
 {
+        public const string achievement_classic_red_lover = "CgkIp4fbiMMWEAIQAw"; // <GPGSID>
+        public const string achievement_classic_blue_lover = "CgkIp4fbiMMWEAIQAg"; // <GPGSID>
+        public const string achievement_classic_green_lover = "CgkIp4fbiMMWEAIQBA"; // <GPGSID>
         public const string leaderboard_leaderboard__the_classic = "CgkIp4fbiMMWEAIQAQ"; // <GPGSID>
 
 }

@@ -12,6 +12,7 @@ public class PlayServices : MonoBehaviour
     public static PlayServices instance;
 
     private Dictionary<String, String> leaderBoards;
+    private Dictionary<String, String> achievements;
 
     void Awake()
     {
@@ -26,7 +27,7 @@ public class PlayServices : MonoBehaviour
 
         LogIn();
 
-        SetLeaderBoards();
+        SetLeaderBoardsAndArchievements();
     }
 
     private void LogIn()
@@ -37,29 +38,25 @@ public class PlayServices : MonoBehaviour
             PlayGamesPlatform.InitializeInstance(config);
             PlayGamesPlatform.DebugLogEnabled = true;
             PlayGamesPlatform.Activate();
-            Social.localUser.Authenticate((bool success) => {
-                if (success)
-                {
-                    GameObject.Find("GPStatus").GetComponent<TextMeshProUGUI>().text = "Google Play Status: OK";
-                }
-                else
-                {
-                    GameObject.Find("GPStatus").GetComponent<TextMeshProUGUI>().text = "Google Play Status: KO";
-                }
-            });
+            Social.localUser.Authenticate((bool success) => {});
         }
         catch (Exception exception)
         {
             Debug.Log(exception);
-            GameObject.Find("GPStatus").GetComponent<TextMeshProUGUI>().text = exception.Message;
         }
     }
 
-    private void SetLeaderBoards()
+    private void SetLeaderBoardsAndArchievements()
     {
         leaderBoards = new Dictionary<string, string>();
-
         leaderBoards.Add("The Classic", GPGSIds.leaderboard_leaderboard__the_classic);
+
+
+        achievements = new Dictionary<string, string>();
+        achievements.Add("Classic Red Lover", GPGSIds.achievement_classic_red_lover);
+        achievements.Add("Classic Green Lover", GPGSIds.achievement_classic_green_lover);
+        achievements.Add("Classic Blue Lover", GPGSIds.achievement_classic_blue_lover);
+
     }
 
     public void AddScoreToLeaderboard(int score, string leaderboardName)

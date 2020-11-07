@@ -44,7 +44,7 @@ public class PlayerCollision : MonoBehaviour
 
             score.SetTopScore();
 
-            StartCoroutine(ReturnToMenu());
+            StartCoroutine(RestartGame());
         }
     }
 
@@ -56,10 +56,10 @@ public class PlayerCollision : MonoBehaviour
         StartCoroutine(goldenLives[Lifes - 1].WinLife());
     }
 
-    IEnumerator ReturnToMenu()
+    IEnumerator RestartGame()
     {
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("GameMode_Classic");
     }
 
     private void WeakShake()

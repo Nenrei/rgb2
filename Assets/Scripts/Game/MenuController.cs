@@ -10,6 +10,11 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene("GameMode_Classic");
     }
 
+    public void StartReactionMode()
+    {
+        SceneManager.LoadScene("GameMode_Reaction");
+    }
+
     public void ExitGame()
     {
         Application.Quit();
