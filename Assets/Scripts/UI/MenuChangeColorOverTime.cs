@@ -14,11 +14,7 @@ public class MenuChangeColorOverTime : MonoBehaviour
     [SerializeField] Image frame;
     [SerializeField] Image frameGlow;
 
-    [SerializeField] ParticleSystem ClassicParticles;
-    [SerializeField] ParticleSystem ExitParticles;
-
-    [SerializeField] TextMeshProUGUI classicText;
-    [SerializeField] TextMeshProUGUI exitText;
+    [SerializeField] ParticleSystem[] ButtonParticles;
 
 
     [Header("Options")]
@@ -56,24 +52,17 @@ public class MenuChangeColorOverTime : MonoBehaviour
     {
         if (ChangingColor)
         {
-            ParticleSystem.MainModule ma = ClassicParticles.main;
-            ma.startColor = LerpColor(ma);
-
-            ParticleSystem.MainModule maDead = ExitParticles.main;
-            maDead.startColor = LerpColor(maDead);
+            foreach(ParticleSystem ps in ButtonParticles)
+            {
+                ParticleSystem.MainModule ma = ps.main;
+                ma.startColor = LerpColor(ma);
+            }
 
             
             Color newFrameColor = LerpColor(frame);
             newFrameColor.a = 1;
             frame.color = newFrameColor;
-            /*
-            Color newFrameColorGlow = LerpColor(frameGlow);
-            newFrameColorGlow.a = 1;
-            frameGlow.color = newFrameColorGlow;
-
-            Color textColor = LerpColor(classicText);
-            classicText.color = textColor;
-            exitText.color = textColor;*/
+            frameGlow.color = newFrameColor;
 
 
             ChangeTime += Time.deltaTime;
@@ -98,21 +87,10 @@ public class MenuChangeColorOverTime : MonoBehaviour
     Color LerpColor(TextMeshProUGUI originObject)
     {
         Color newColor = Color.Lerp(originObject.color, colorsOpaque[currColor], changeSpeed * Time.deltaTime);
-        
-
-
         float H, S, V;
-
         Color.RGBToHSV(newColor, out H, out S, out V);
         V = 0.3f;
-
         Color newNewColor = Color.HSVToRGB(H, S, V);
-
-        /*newNewColor.r = newColor.r;
-        newNewColor.g = newColor.g;
-        newNewColor.b = newColor.b;
-        newNewColor.a = newColor.a;*/
-
         return newNewColor;
     }
 
