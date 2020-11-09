@@ -16,7 +16,6 @@ public class ChangeColorOverTime : MonoBehaviour
     [SerializeField] ParticleSystem playerParticles;
     [SerializeField] ParticleSystem playerDeadParticles;
     [SerializeField] Image frame;
-    [SerializeField] Image frameGlow;
     [SerializeField] TextMeshProUGUI scoreText;
 
     [Header("Options")]
@@ -58,7 +57,6 @@ public class ChangeColorOverTime : MonoBehaviour
             maDead.startColor = LerpColor(maDead);
 
             frame.color = LerpColor(frame);
-            frameGlow.color = LerpColor(frameGlow);
 
             Color scoreColor  = LerpColor(scoreText);
             scoreColor.a = 0.2f;

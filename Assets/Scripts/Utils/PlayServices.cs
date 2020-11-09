@@ -36,7 +36,7 @@ public class PlayServices : MonoBehaviour
         {
             PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder().Build();
             PlayGamesPlatform.InitializeInstance(config);
-            PlayGamesPlatform.DebugLogEnabled = true;
+            PlayGamesPlatform.DebugLogEnabled = false;
             PlayGamesPlatform.Activate();
             Social.localUser.Authenticate((bool success) => {});
         }
@@ -50,6 +50,7 @@ public class PlayServices : MonoBehaviour
     {
         leaderBoards = new Dictionary<string, string>();
         leaderBoards.Add("The Classic", GPGSIds.leaderboard_leaderboard__the_classic);
+        leaderBoards.Add("Reaction", GPGSIds.leaderboard_leaderboard__reaction);
 
 
         achievements = new Dictionary<string, string>();

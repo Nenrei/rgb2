@@ -12,7 +12,6 @@ public class MenuChangeColorOverTime : MonoBehaviour
 
     [Header("Changing Objects")]
     [SerializeField] Image frame;
-    [SerializeField] Image frameGlow;
 
     [SerializeField] ParticleSystem[] ButtonParticles;
 
@@ -62,7 +61,6 @@ public class MenuChangeColorOverTime : MonoBehaviour
             Color newFrameColor = LerpColor(frame);
             newFrameColor.a = 1;
             frame.color = newFrameColor;
-            frameGlow.color = newFrameColor;
 
 
             ChangeTime += Time.deltaTime;
