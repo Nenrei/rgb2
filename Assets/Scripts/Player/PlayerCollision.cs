@@ -15,9 +15,17 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField] LifesUI[] goldenLives;
 
     [SerializeField] int lifes;
+    [SerializeField] int endGamesUntilAdConf = 0;
 
     public int Lifes { get => lifes; set => lifes = value; }
 
+    private void Awake()
+    {
+        if (PlayerPrefs.GetInt("endGamesUntilAd") == endGamesUntilAdConf)
+        {
+            AdMobManager.instance.RequestAndLoadInterstitialAd();
+        }
+    }
     public void Score()
     {
         WeakShake();
@@ -44,7 +52,13 @@ public class PlayerCollision : MonoBehaviour
 
             score.SetTopScore();
 
-            StartCoroutine(RestartGame());
+            //StartCoroutine(RestartGame());
+
+            if (PlayerPrefs.GetInt("endGamesUntilAd") == endGamesUntilAdConf)
+            {
+                AdMobManager.instance.ShowInterstitialAd();
+            }
+
         }
     }
 
