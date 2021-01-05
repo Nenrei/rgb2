@@ -58,6 +58,9 @@ public class PlayServices : MonoBehaviour
         achievements.Add("Classic Green Lover", GPGSIds.achievement_classic_green_lover);
         achievements.Add("Classic Blue Lover", GPGSIds.achievement_classic_blue_lover);
 
+        achievements.Add("Reaction God", GPGSIds.achievement_reaction_god);
+        achievements.Add("Faster Than Light", GPGSIds.achievement_faster_than_light);
+
     }
 
     public void AddScoreToLeaderboard(int score, string leaderboardName)
@@ -98,8 +101,8 @@ public class PlayServices : MonoBehaviour
     {
         if (Social.localUser.authenticated)
         {
-            Debug.Log("Unlocking " + achievementID + " achievement, id: " + achievementID);
-            Social.ReportProgress(achievementID, 100f, success => { });
+            Debug.Log("Unlocking " + achievementID + " achievement, id: " + achievements[achievementID]);
+            Social.ReportProgress(achievements[achievementID], 100f, success => { });
         }
     }
 

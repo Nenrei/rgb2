@@ -29,6 +29,9 @@ public class ReactionGameController : MonoBehaviour
     [SerializeField] [Range(0, 10)] float maxColorDelay = 10;
     [SerializeField] int repetitionsPerColor = 3;
 
+    [Space]
+    [SerializeField] int endGamesUntilAd = 3;
+
     private List<GameObject> colorsToPlay;
 
     private int index = -1;
@@ -41,6 +44,16 @@ public class ReactionGameController : MonoBehaviour
     {
         ShowScores();
         PrepareLists();
+
+        if (PlayerPrefs.GetInt("reactionEndGamesUntilAd") == 0)
+        {
+            PlayerPrefs.SetInt("reactionEndGamesUntilAd", 1);
+        }
+
+        if (PlayerPrefs.GetInt("reactionEndGamesUntilAd") == endGamesUntilAd)
+        {
+            AdMobManager.instance.RequestAndLoadInterstitialAd();
+        }
     }
 
     private void PrepareLists()
@@ -96,6 +109,11 @@ public class ReactionGameController : MonoBehaviour
         colorsToPlay[index].GetComponent<ReactionColor>().SetTime(diff.TotalSeconds);
         colorsToPlay[index].SetActive(false);
 
+        if (diff.TotalSeconds < 0.2)
+        {
+            PlayServices.instance.UnlockAchievement("Faster Than Light");
+        }
+
         if (index == colorsToPlay.Count -1 )
         {
             endScreen.SetActive(true);
@@ -114,7 +132,13 @@ public class ReactionGameController : MonoBehaviour
             total = total / count;
             totalText.text = Math.Round(total, 4).ToString() + "s";
 
+            if(total < 0.2)
+            {
+                PlayServices.instance.UnlockAchievement("Reaction God");
+            }
+
             SetTopScoreDouble(total);
+            StartCoroutine(ShowAds());
         }
         else
         {
@@ -187,5 +211,24 @@ public class ReactionGameController : MonoBehaviour
     public void ShowLeaderBoard()
     {
         PlayServices.instance.ShowLeaderboard("Reaction");
+    }
+    public void ShowArchievements()
+    {
+        PlayServices.instance.ShowAchievements();
+    }
+
+    IEnumerator ShowAds()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        if (PlayerPrefs.GetInt("reactionEndGamesUntilAd") == endGamesUntilAd)
+        {
+            PlayerPrefs.SetInt("reactionEndGamesUntilAd", 1);
+            AdMobManager.instance.ShowInterstitialAd();
+        }
+        else
+        {
+            PlayerPrefs.SetInt("reactionEndGamesUntilAd", PlayerPrefs.GetInt("reactionEndGamesUntilAd") + 1);
+        }
     }
 }

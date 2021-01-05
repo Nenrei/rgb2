@@ -13,9 +13,9 @@ public class TouchController : MonoBehaviour {
         {
             if ((Input.touches.Length > 0 || Input.GetMouseButton(0)))
             {
-                if (GameController.Instance.GamePaused)
+                if (GameController.instance.GamePaused)
                 {
-                    GameController.Instance.UnPauseGame();
+                    GameController.instance.UnPauseGame();
                 }
                 player.GetComponent<PlayerMovement>().MovePlayer();
             }

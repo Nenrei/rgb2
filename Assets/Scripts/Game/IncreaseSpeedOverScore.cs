@@ -19,6 +19,8 @@ public class IncreaseSpeedOverScore : MonoBehaviour
             case 30:
             case 40:
             case 50:
+                pooler.MinSpawnDelay -= 0.05f;
+                pooler.MaxSpawnDelay -= 0.05f;
                 pooler.Speed += 1f;
                 break;
             case 60:
@@ -27,6 +29,14 @@ public class IncreaseSpeedOverScore : MonoBehaviour
             case 90:
             case 100:
                 pooler.Speed += .5f;
+                if (pooler.MinSpawnDelay > 0.2)
+                {
+                    pooler.MinSpawnDelay -= 0.05f;
+                }
+                if (pooler.MaxSpawnDelay > 0.4)
+                {
+                    pooler.MaxSpawnDelay -= 0.05f;
+                }
                 break;
             default:
                 break;

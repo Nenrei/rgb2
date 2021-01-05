@@ -50,11 +50,11 @@ public class ObstaclesPooler : MonoBehaviour
 
     void SpawnObstacle()
     {
-        if (playerCol.Lifes < 3)
+        if (playerCol.Lifes < 3 && PlayerPrefs.GetInt("score") > 10)
         {
             if (goldenGoalCount == 0)
             {
-                goldenGoalCount = Random.Range(10, 30);
+                goldenGoalCount = Random.Range(15, 45);
                 //goldenGoalCount = 4;
                 spawnGolden = false;
             }
@@ -63,7 +63,7 @@ public class ObstaclesPooler : MonoBehaviour
                 goldenGoalCount = 0;
                 goldenCounter = 0;
                 spawnGolden = true;
-                Debug.Log("Pool golden");
+                //Debug.Log("Pool golden");
             }
 
             goldenCounter++;

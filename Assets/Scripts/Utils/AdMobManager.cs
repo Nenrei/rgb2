@@ -186,12 +186,8 @@ public class AdMobManager : MonoBehaviour
     {
         if (statusText != null)
             statusText.text = "Requesting Interstitial Ad.";
-#if UNITY_EDITOR
-        string adUnitId = "unused";
-#elif UNITY_ANDROID
-        string adUnitId = "ca-app-pub-3940256099942544/1033173712";
-#elif UNITY_IPHONE
-        string adUnitId = "ca-app-pub-3940256099942544/4411468910";
+#if UNITY_ANDROID
+        string adUnitId = "ca-app-pub-3030216156756049/1696807042";
 #else
         string adUnitId = "unexpected_platform";
 #endif

@@ -30,8 +30,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (movingPlayer)
         {
-            if (!GameController.Instance.GameStarted)
-                GameController.Instance.StartGame();
+            if (!GameController.instance.GameStarted)
+                GameController.instance.StartGame();
 
             Vector3 newPos = Vector3.Lerp(transform.position, target, speed * Time.deltaTime);
             transform.position = newPos;
@@ -49,7 +49,6 @@ public class PlayerMovement : MonoBehaviour
     public void MovePlayer()
     {
         float mouseX = cam.ScreenToWorldPoint(Input.mousePosition).x;
-
         if (mouseX > targetLeft.position.x && mouseX < targetRight.position.x)
         {
             target = new Vector3(mouseX, transform.position.y, transform.position.z);

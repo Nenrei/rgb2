@@ -11,9 +11,9 @@ public class MenuChangeColorOverTime : MonoBehaviour
     [SerializeField] Color[] colorsOpaque;
 
     [Header("Changing Objects")]
-    [SerializeField] Image frame;
-
-    [SerializeField] ParticleSystem[] ButtonParticles;
+    [SerializeField] Image[] images;
+    [SerializeField] TextMeshProUGUI[] texts;
+    [SerializeField] ParticleSystem[] buttonParticles;
 
 
     [Header("Options")]
@@ -51,21 +51,29 @@ public class MenuChangeColorOverTime : MonoBehaviour
     {
         if (ChangingColor)
         {
-            foreach(ParticleSystem ps in ButtonParticles)
+            foreach(ParticleSystem ps in buttonParticles)
             {
                 ParticleSystem.MainModule ma = ps.main;
                 ma.startColor = LerpColor(ma);
             }
 
-            
-            Color newFrameColor = LerpColor(frame);
-            newFrameColor.a = 1;
-            frame.color = newFrameColor;
+            foreach (Image im in images)
+            {
+                Color newImageColor = LerpColor(im);
+                newImageColor.a = 1;
+                im.color = newImageColor;
+            }
 
+            foreach (TextMeshProUGUI txt in texts)
+            {
+                Color newTxtColor = LerpColor(txt);
+                newTxtColor.a = 1;
+                txt.color = newTxtColor;
+            }
 
             ChangeTime += Time.deltaTime;
 
-            if (frame.color == colorsOpaque[currColor])
+            if (images[0].color == colorsOpaque[currColor])
             {
                 ChangingColor = false;
                 Invoke("ChangeMaterial", 4f);
@@ -84,12 +92,13 @@ public class MenuChangeColorOverTime : MonoBehaviour
     }
     Color LerpColor(TextMeshProUGUI originObject)
     {
-        Color newColor = Color.Lerp(originObject.color, colorsOpaque[currColor], changeSpeed * Time.deltaTime);
+        /*Color newColor = Color.Lerp(originObject.color, colorsOpaque[currColor], changeSpeed * Time.deltaTime);
         float H, S, V;
         Color.RGBToHSV(newColor, out H, out S, out V);
         V = 0.3f;
         Color newNewColor = Color.HSVToRGB(H, S, V);
-        return newNewColor;
+        return newNewColor;*/
+        return Color.Lerp(originObject.color, colorsOpaque[currColor], changeSpeed * Time.deltaTime);
     }
 
     void ChangeMaterial()

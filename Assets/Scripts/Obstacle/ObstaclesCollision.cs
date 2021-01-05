@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ObstaclesCollision : MonoBehaviour
 {
-
     [SerializeField] ChangeColorOverTime changeColor;
     [SerializeField] PlayerCollision player;
     [SerializeField] string color;
@@ -56,7 +55,7 @@ public class ObstaclesCollision : MonoBehaviour
             else if (DieOnCollision(Color))
                 player.Die();
             else
-                player.Score();
+                player.Score(Color);
         }
     }
 
@@ -75,5 +74,7 @@ public class ObstaclesCollision : MonoBehaviour
         gameObject.SetActive(false);
         GetComponent<CircleCollider2D>().enabled = true;
     }
+
+    
 
 }
